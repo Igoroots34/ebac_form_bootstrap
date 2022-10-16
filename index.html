@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Bootstrap</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <form class="rounded-3 shadow-lg border border-dark border-opacity-25 border-2 row g-2 p-2 justify-content-md-center needs-validation bg"novalidate>
+            <span class=""></span>
+                <h1 class="text-center text-primary">Formulário Bootstrap</h1>
+            <div class="form-floating col-md-7 ">
+                <input class="form-control form-control-sm" id="inputName" type="text" placeholder="Nome" required>
+                <label for="inputName">Nome</label>
+                <div class="invalid-feedback">
+                    Por favor digite seu nome.
+                </div>
+                <div class="valid-feedback">
+                    &#10003; Válido.
+                </div>
+            </div>
+            <div class="form-floating col-md-5">
+                <input class="form-control form-control-sm" id="inputTel" type="tel" placeholder="(00) 00000-0000" required>
+                <label for="inputTel">Telefone</label>
+                <div class="invalid-feedback">
+                    Por favor digite seu telefone.
+                </div>
+                <div class="valid-feedback">
+                    &#10003; Válido.
+                </div>
+            </div>
+            <div class="form-floating col-md-12 has-validation">
+                <input class="form-control form-control-sm" id="inputEmail" type="email" placeholder="name@example.com" required>
+                <label for="inputEmail">E-mail</label>
+                <div class="invalid-feedback">
+                    Por favor digite um e-mail válido.
+                </div>
+                <div class="valid-feedback">
+                    &#10003; Válido.
+                </div>
+            </div>
+            <div class="d-grid mb-2">
+                <button type="submit" id="btn-submit" class="btn btn-primary">Enviar</button>
+            </div>
+        </form>
+    </div>
+    <script
+    src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+    crossorigin="anonymous"></script>
+    <script src="./js/jquery.mask.min.js"></script>
+    <script>
+        (() => {
+        const forms = $('.needs-validation')
+
+        Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+        }, false)
+        })
+    })()
+
+        $('#inputTel').mask('(00) 00000-0000')
+    </script>
+</body>
+</html>
